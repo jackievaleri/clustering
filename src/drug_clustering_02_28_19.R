@@ -21,7 +21,8 @@ kmeansCluster <- function(numClusters, save=TRUE) {
   
   print(labels)
   if(save) {
-    filename = paste('drug_labels_', numClusters, '_clusters_non_size_norm', sep="")
+    path = '/Users/jackie16201/Desktop/Lab/clustering/out/'
+    filename = paste(path, 'drug_labels_', numClusters, '_clusters_non_size_norm', sep="")
     write.csv(labels, file = filename)
   }
 }
@@ -97,4 +98,7 @@ for (col in 1:length(colnames(df))) {
 }
 print(gene_zero_percent)
 
+# debug 3: try test set
+test_path = '/Users/jackie16201/Desktop/Lab/clustering/data/'
+test_set <- read.csv(file=paste(test_path, 'test_drugs'), header=FALSE, sep=",")
 
