@@ -2,6 +2,8 @@
 
 df = data.frame(as.matrix(DRUID::cmap_druid$tfidf))
 
+# adding a comment to test out github
+
 # print(df) # nah homeboy too long
 #write.csv(df, file = 'tfidf')
 
