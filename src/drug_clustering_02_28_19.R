@@ -102,3 +102,5 @@ print(gene_zero_percent)
 test_path = '/Users/jackie16201/Desktop/Lab/clustering/data/'
 test_set <- read.csv(file=paste(test_path, 'test_drugs', sep=''), header=FALSE, sep=",")
 print(test_set)
+
+# 
