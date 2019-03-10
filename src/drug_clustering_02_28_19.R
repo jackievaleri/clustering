@@ -103,4 +103,36 @@ test_path = '/Users/jackie16201/Desktop/Lab/clustering/data/'
 test_set <- read.csv(file=paste(test_path, 'test_drugs', sep=''), header=FALSE, sep=",")
 print(test_set)
 
-# 
+# read in any k means clustering result and check against test set
+checkTestSet <- function(kmeans_path, test_set) {
+  kmeans_test = read.csv(kmeans_path, header=TRUE, sep=",")
+  
+  for (row_test in 1:nrow(test_set)) {
+    test_drug = test_set[row_test, "V2"]
+    test_class = test_set[row_test, "V1"]
+    for (row in 1:nrow(kmeans_test)) {
+      drug <- kmeans_test[row, "X1"]
+      cluster  <- kmeans_test[row, "X2"]
+    
+      if(test_drug == drug) {
+        print(paste(drug, 'was in cluster', cluster, 'in test set but actually class', test_class))
+      }
+    }
+  }
+}
+
+# Use the test function now!
+kmeans_5_path = paste('/Users/jackie16201/Desktop/Lab/clustering/out/drug_labels_5_clusters_non_size_norm')
+checkTestSet(kmeans_5_path, test_set)
+
+kmeans_10_path = paste('/Users/jackie16201/Desktop/Lab/clustering/out/drug_labels_10_clusters_non_size_norm')
+checkTestSet(kmeans_10_path, test_set)
+
+kmeans_50_path = paste('/Users/jackie16201/Desktop/Lab/clustering/out/drug_labels_50_clusters_non_size_norm')
+checkTestSet(kmeans_50_path, test_set)
+
+kmeans_100_path = paste('/Users/jackie16201/Desktop/Lab/clustering/out/drug_labels_100_clusters_non_size_norm')
+checkTestSet(kmeans_100_path, test_set)
+
+kmeans_300_path = paste('/Users/jackie16201/Desktop/Lab/clustering/out/drug_labels_300_clusters_non_size_norm')
+checkTestSet(kmeans_300_path, test_set)
