@@ -2,7 +2,7 @@
 
 # do pca
 df = data.frame(as.matrix(DRUID::cmap_druid$tfidf))
-pca = prcomp(df, scale = TRUE)
+pca = prcomp(df, scale = TRUE) # don't do this it takes TOO LONG!!!!
 
 # install some stuff for visualization
 install.packages("factoextra")
